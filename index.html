@@ -7,25 +7,71 @@
     
 
     <title>Switch</title>
-    <script type="module" crossorigin src="/lang-and-theme-switcher/assets/index.f3122d7b.js"></script>
-    <link rel="stylesheet" href="/lang-and-theme-switcher/assets/index.4aa66093.css">
+    <script type="module" crossorigin src="/lang-and-theme-switcher/assets/index.887151e5.js"></script>
+    <link rel="stylesheet" href="/lang-and-theme-switcher/assets/index.9e1ef9f7.css">
   </head>
-  <body>
-    <div
-      id="app"
-      class="flex h-screen flex-col items-center justify-between py-8 text-center text-[#2c3e50] selection:bg-green-100"
+  <body class="bg-bgPrimary dark:bg-neutral-800">
+    <header
+      class="flex h-16 w-full flex-row content-center justify-between rounded-lg bg-zinc-50 p-4 drop-shadow-md dark:bg-stone-800"
     >
-      <div>
+      <a href="/" class="text-bold text-2xl text-primary dark:text-yellow-100"
+        >Website logo</a
+      >
+      <!-- <nav class="">
+        <ul class="flex flex-row gap-4">
+          <li><a href="/" class="">About</a></li>
+          <li><a href="/" class="">Sourses</a></li>
+        </ul>
+      </nav> -->
+      <button
+        class="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+        data-mode-toggle
+      >
+        <svg width="24" height="24" class="fill-primary dark:fill-yellow-100">
+          <use href="/lang-and-theme-switcher/assets/icons.ebc8a97f.svg#icon-sun"></use>
+        </svg>
+      </button>
+    </header>
+    <main class="flex min-h-screen p-12">
+      <section class="flex flex-col gap-4 py-6">
         <h1
-          class="bg-gradient-to-r from-green-600 to-sky-400 bg-clip-text text-5xl font-black text-transparent selection:bg-transparent"
+          class="inline-block bg-gradient-to-br from-primary to-secondary bg-clip-text text-6xl font-bold leading-tight text-transparent dark:from-violet-700 dark:to-amber-200"
         >
-          Hello !
+          Language and theme switch practise
         </h1>
-        <h3 class="my-4 text-2xl font-bold text-gray-500">
-          Vite + JS + tailwindcss v3
-        </h3>
-      </div>
-    </div>
+        <p class="text-primary dark:text-yellow-100">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est sint
+          dolorum expedita. Animi blanditiis tempore, id a autem nisi sunt atque
+          minus, at in placeat totam earum hic modi repellat.
+        </p>
+        <p class="text-primary dark:text-yellow-100">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est sint
+          dolorum expedita. Animi blanditiis tempore, id a autem nisi sunt atque
+          minus, at in placeat totam earum hic modi repellat. Lorem ipsum dolor
+          sit amet consectetur adipisicing elit. Modi amet, libero eos commodi
+          impedit dolore excepturi maxime quidem quam, ex natus voluptate
+          cupiditate facere fugit optio adipisci, laboriosam id velit.
+        </p>
+
+        <div class="flex gap-4">
+          <button
+            type="button"
+            class="rounded-md bg-secondary p-2.5 font-medium text-primary drop-shadow-md hover:bg-secondary"
+            data-theme-switcher
+          >
+            Switch theme
+          </button>
+          <button
+            type="button"
+            class="rounded-md bg-primary p-2.5 font-medium text-secondary drop-shadow-md hover:bg-violet-800 dark:bg-violet-700"
+            data-mode-toggle
+          >
+            Switch mode
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
     
   </body>
 </html>
