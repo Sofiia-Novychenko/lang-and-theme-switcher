@@ -6,11 +6,8 @@
   @apply text-blue-500 hover:text-blue-400 hover:underline transition-all;
 } */
 
-:root {
-  --primary: #0284c7;
-}
-
+/* 
 body {
   background-color: #fafafa;
   margin: 0 16px;
-}
+} */
