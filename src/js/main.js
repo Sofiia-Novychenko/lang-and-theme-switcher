@@ -1,23 +1,24 @@
 import "../css/index.css";
 
 const modeSwitches = document.querySelectorAll("[data-mode-toggle]");
+
 const themeSwitcher = document.querySelector("[data-theme-switcher]");
 const body = document.body;
 const themes = ["theme-blue", "theme-red", ""]; //! "" означає дефолтну тему
 
 // -------- Режим (світлий/темний) -------- //
 //зміна іконки лише якщо є use
-const updateIcon = (isDark) => {
-  const iconUse = document.querySelector("[data-mode-toggle] use");
-  if (iconUse) {
-    iconUse.setAttribute(
-      "href",
-      isDark
-        ? "./src/img/icons/icons.svg#icon-sun"
-        : "./src/img/icons/icons.svg#icon-moon"
-    );
-  }
-};
+// const updateIcon = (isDark) => {
+//   const iconUse = document.querySelector("[data-mode-toggle] use");
+//   if (iconUse) {
+//     iconUse.setAttribute(
+//       "href",
+//       isDark
+//         ? "./src/img/icons/icons.svg#icon-sun"
+//         : "./src/img/icons/icons.svg#icon-moon"
+//     );
+//   }
+// };
 
 const savedMode = localStorage.getItem("mode");
 const savedTheme = localStorage.getItem("theme");
@@ -26,22 +27,40 @@ const savedTheme = localStorage.getItem("theme");
 //початковий РЕЖИМ
 if (savedMode === "dark") {
   document.documentElement.classList.add("dark");
-  updateIcon(true);
+  // updateIcon(true);
 } else {
-  updateIcon(false);
+  // updateIcon(false);
 }
 //початкова ТЕМА
 if (savedTheme && themes.includes(savedTheme)) {
   body.classList.add(savedTheme);
 }
 
-modeSwitches.forEach((btn) =>
+modeSwitches.forEach((btn) => {
+  const sun = document.querySelector("#icon-sun");
+  const moon = document.querySelector("#icon-moon");
+
+  if (document.documentElement.classList.contains("dark")) {
+    sun.classList.remove("hidden");
+    moon.classList.add("hidden");
+  } else {
+    sun.classList.add("hidden");
+    moon.classList.remove("hidden");
+  }
   btn.addEventListener("click", () => {
     const isDark = document.documentElement.classList.toggle("dark");
+
     localStorage.setItem("mode", isDark ? "dark" : "light");
-    updateIcon(isDark);
-  })
-);
+    // зміна іконки лише для кнопки з іконками
+    if (isDark) {
+      sun.classList.remove("hidden");
+      moon.classList.add("hidden");
+    } else {
+      sun.classList.add("hidden");
+      moon.classList.remove("hidden");
+    }
+  });
+});
 
 // -------- Перемикання теми -------- //
 themeSwitcher.addEventListener("click", () => {
